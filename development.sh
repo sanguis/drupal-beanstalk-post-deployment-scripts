@@ -1,6 +1,7 @@
 #!/bin/sh
 
-COMMENT = %COMMENT%;
+COMMENT = $1
+
 if [ $COMMENT =~ "-updb-" ]; then
   echo "Clearing cache"
   drush -y updb
@@ -19,3 +20,7 @@ fi
 if [ $COMMENT =~ "-cc-" ]; then
   drush cc all
 fi
+
+# making local log
+DATE=date
+echo "deployed %REVISION% on $DATE, by %USER_NAME%" >>  ~/.beanstalk.log
