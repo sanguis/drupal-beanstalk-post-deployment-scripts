@@ -1,23 +1,24 @@
-#!/bin/sh
+#!/bin/bash
 
 COMMENT = $1
 
-if [ $COMMENT =~ "-updb-" ]; then
+echo comment: $COMMENT;
+if [[ $COMMENT =~ "-updb-" ]]; then
   echo "Clearing cache"
   drush -y updb
 fi
 
-if [ $COMMENT =~ "-fra-" ]; then
+if [[ $COMMENT =~ "-fra-" ]]; then
   drush -y fra
 fi
 
-if [ $COMMENT =~ "-bigups-" ]; then
+if [[ $COMMENT =~ "-bigups-" ]]; then
   drush -y updb
   drush -y fra
   drush cc all
 fi
 
-if [ $COMMENT =~ "-cc-" ]; then
+if [[ $COMMENT =~ "-cc-" ]]; then
   drush cc all
 fi
 
