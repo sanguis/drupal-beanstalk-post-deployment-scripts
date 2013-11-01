@@ -1,8 +1,7 @@
 #!/bin/bash
 
-COMMENT = $1
+COMMENT=$1
 
-echo comment: $COMMENT;
 if [[ $COMMENT =~ "-updb-" ]]; then
   echo "Clearing cache"
   drush -y updb
