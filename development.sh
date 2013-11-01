@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# how to run development.sh %COMMENT% %REVISION% %USER_NAME%
 COMMENT=$1
 
 if [[ $COMMENT =~ "-updb-" ]]; then
@@ -22,5 +22,5 @@ if [[ $COMMENT =~ "-cc-" ]]; then
 fi
 
 # making local log
-DATE=date
-echo "deployed %REVISION% on $DATE, by %USER_NAME%" >>  ~/.beanstalk.log
+DATE=$(date)
+echo "deployed $2 on $DATE, by $3" >>  ~/.beanstalk.log
