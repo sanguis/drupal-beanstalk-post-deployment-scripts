@@ -37,6 +37,10 @@ drush -y fra
 drush cc all
 
 
-**-cc-**
+**-cc_all-**
 
 drush cc all
+
+**-cc_cssjs-**
+
+drush cc css-js

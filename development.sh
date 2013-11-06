@@ -17,8 +17,12 @@ if [[ $COMMENT =~ "-bigups-" ]]; then
   drush cc all
 fi
 
-if [[ $COMMENT =~ "-cc-" ]]; then
+if [[ $COMMENT =~ "-cc_all-" ]]; then
   drush cc all
+fi
+
+if [[ $COMMENT =~ "-cc_cssjs-" ]]; then
+  drush cc ccs-js
 fi
 
 # making local log
