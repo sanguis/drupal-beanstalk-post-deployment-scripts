@@ -52,5 +52,5 @@ drush cc block
 TODO
 ====
 
-* change clear cache function to be *-cc-CACHETYPE-* and have it defualt to all but be able to use all cache clear types and just read thea cception for the *%comment%* var.
+* change clear cache function to be *-cc_CACHETYPE-* and have it default to *cc all* but be able to use all of the cache clear types and just read the entry for the *%comment%* var.
 * allow custom deploy log vars and locaton.
