@@ -1,6 +1,12 @@
 #!/bin/bash
 # how to run development.sh %COMMENT% %REVISION% %USER_NAME%
 COMMENT=$1
+DATE=$(date)
+
+if [[ $COMMENT =~ "-dbdump-" ]]; then
+  echo "Clearing cache"
+  drush sql-dump > /tmp/$DATE-bs-dump.sql
+fi
 
 if [[ $COMMENT =~ "-updb-" ]]; then
   echo "Clearing cache"
@@ -28,6 +34,8 @@ fi
 if [[ $COMMENT =~ "-cc_blocks-" ]]; then
   drush cc block
 fi
+
+
 # making local log
-DATE=$(date)
+
 echo "deployed $2 on $DATE, by $3" >>  ~/.beanstalk.log
