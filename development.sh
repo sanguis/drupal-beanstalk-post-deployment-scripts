@@ -5,7 +5,7 @@ DATE=$(date)
 
 if [[ $COMMENT =~ "-dbdump-" ]]; then
   echo "Clearing cache"
-  drush sql-dump > /tmp/$DATE-bs-dump.sql
+  drush sql-dump > /tmp/"$DATE"-bs-dump.sql
 fi
 
 if [[ $COMMENT =~ "-updb-" ]]; then
