@@ -18,6 +18,10 @@ Usage
 =====
 To use the keyword bellow to trigger the drush actions.
 
+**-dbdump-**
+
+drush sql-dump > /tmp/$DATE-bs-dump.sql
+
 **-updb-**
 
 drush -y updb
