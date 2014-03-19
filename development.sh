@@ -1,7 +1,19 @@
 #!/bin/bash
-# how to run development.sh %COMMENT% %REVISION% %USER_NAME%
+# how to run development.sh "%COMMENT%" %REVISION% %USER_NAME%
+
 COMMENT=$1
 DATE=$(date)
+LOGFILE="~/.beanstalk.log"
+
+while getopts "l:" opt; do
+  case $opt in
+    l)
+      echo "log file is: $OPTARG" 
+      LOGFILE=$OPTARG
+      echo "logfile should be: $LOGFILE"
+      ;;
+  esac
+done
 
 if [[ $COMMENT =~ "-dbdump-" ]]; then
   echo "Clearing cache"
@@ -38,4 +50,4 @@ fi
 
 # making local log
 
-echo "deployed $2 on $DATE, by $3" >>  ~/.beanstalk.log
+echo "deployed $2 on $DATE, by $3" >> $LOGFILE 
