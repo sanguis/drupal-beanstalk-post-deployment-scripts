@@ -1,17 +1,16 @@
 #!/bin/bash
 # how to run development.sh "%COMMENT%" %REVISION% %USER_NAME%
-
+#echo $@\n
 COMMENT=$1
 DATE=$(date)
 LOGFILE="$HOME/.beanstalk.log"
 
-while getopts "l:" opt; do
+while getopts "123l:" opt; do
   case $opt in
     l)
-      echo "starts as: $LOGFILE"
-      echo "log file is: $OPTARG" 
+      echo "target $OPTARG"
       LOGFILE=$OPTARG
-      echo "logfile should be: $LOGFILE"
+      echo "log: $LOGFILE"
       ;;
   esac
 done
