@@ -3,11 +3,12 @@
 
 COMMENT=$1
 DATE=$(date)
-LOGFILE="~/.beanstalk.log"
+LOGFILE="$HOME/.beanstalk.log"
 
 while getopts "l:" opt; do
   case $opt in
     l)
+      echo "starts as: $LOGFILE"
       echo "log file is: $OPTARG" 
       LOGFILE=$OPTARG
       echo "logfile should be: $LOGFILE"
