@@ -53,6 +53,11 @@ drush cc css-js
 
 drush cc block
 
+**-rp-** *to rebuild Drupal permissions*
+
+drush php-eval 'node_access_rebuild();'
+
+
 TODO
 ====
 
