@@ -47,6 +47,10 @@ if [[ $COMMENT =~ "-cc_blocks-" ]]; then
   drush cc block
 fi
 
+if [[ $COMMENT =~ "-rp-" ]]; then
+  drush php-eval 'node_access_rebuild();'
+fi
+
 
 # making local log
 
