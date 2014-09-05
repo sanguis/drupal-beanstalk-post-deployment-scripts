@@ -51,6 +51,10 @@ if [[ $COMMENT =~ "-cc_blocks-" ]]; then
   drush $ALIAS cc block
 fi
 
+if [[ $COMMENT =~ "-rp-" ]]; then
+  drush $ALIAS php-eval 'node_access_rebuild();'
+fi
+
 if [[ $COMMENT =~ "-cron-" ]]; then
   drush $ALIAS cron
 fi
