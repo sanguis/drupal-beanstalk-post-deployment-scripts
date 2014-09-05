@@ -59,6 +59,9 @@ drush cc css-js
 
 drush cc block
 
+**-rp-** *to rebuild Drupal permissions*
+
+drush php-eval 'node_access_rebuild();'
 **-cron--**
 
 drush cron
@@ -66,5 +69,4 @@ drush cron
 TODO
 ====
 
-* change clear cache function to be *-cc_CACHETYPE-* and have it default to *cc all* but be able to use all of the cache clear types and just read the entry for the *%comment%* var.
-* allow custom deploy log vars and locaton.
+* change clear cache function to be *-cc_CACHETYPE-* and have it default to *cc all* but be able to use all of the cache clear types and just read the entry for the *%comment%* var. 

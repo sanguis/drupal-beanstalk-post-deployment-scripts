@@ -6,7 +6,7 @@ DATE=$(date)
 LOGFILE="$HOME/.beanstalk.log"
 ALIAS="@self"
 
-while getopts "123la" opt; do
+while getopts "123la:" opt; do
   case $opt in
     l)
       echo "target $OPTARG"
