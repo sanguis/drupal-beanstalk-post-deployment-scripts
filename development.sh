@@ -6,7 +6,7 @@ DATE=$(date)
 LOGFILE="$HOME/.beanstalk.log"
 ALIAS="@self"
 
-while getopts "123l:" opt; do
+while getopts "123la" opt; do
   case $opt in
     l)
       echo "target $OPTARG"
@@ -16,6 +16,7 @@ while getopts "123l:" opt; do
     a)
      echo "Running commands against drush alias $OPTARG"
      ALIAS=$OPTARG;
+     ;;
   esac
 done
 
@@ -50,6 +51,9 @@ if [[ $COMMENT =~ "-cc_blocks-" ]]; then
   drush $ALIAS cc block
 fi
 
+if [[ $COMMENT =~ "-cron-" ]]; then
+  drush $ALIAS cron
+fi
 
 # making local log
 

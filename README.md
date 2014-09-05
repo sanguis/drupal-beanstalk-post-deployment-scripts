@@ -18,6 +18,12 @@ Usage
 =====
 To use the keyword bellow to trigger the drush actions.
 
+## Command Flags
+  -l log file location. defaults to ~/.beanstalk.log
+  -a alias. specify a drush alais or prefix for deployment
+
+## Commit flags
+
 **-dbdump-**
 
 drush sql-dump > /tmp/$DATE-bs-dump.sql
@@ -52,6 +58,10 @@ drush cc css-js
 **-cc_block-**
 
 drush cc block
+
+**-cron--**
+
+drush cron
 
 TODO
 ====
