@@ -4,6 +4,7 @@
 COMMENT=$1
 DATE=$(date)
 LOGFILE="$HOME/.beanstalk.log"
+ALIAS="@self"
 
 while getopts "123l:" opt; do
   case $opt in
@@ -12,39 +13,41 @@ while getopts "123l:" opt; do
       LOGFILE=$OPTARG
       echo "log: $LOGFILE"
       ;;
+    a)
+     echo "Running commands against drush alias $OPTARG"
+     ALIAS=$OPTARG;
   esac
 done
 
+#TODO: Make commands collect in an array and then run them all in a batch
 if [[ $COMMENT =~ "-dbdump-" ]]; then
-  echo "Clearing cache"
-  drush sql-dump > /tmp/"$DATE"-bs-dump.sql
+  drush  $ALIAS sql-dump > /tmp/"$DATE"-bs-dump.sql
 fi
 
 if [[ $COMMENT =~ "-updb-" ]]; then
-  echo "Clearing cache"
-  drush -y updb
+  drush $ALIAS -y updb
 fi
 
 if [[ $COMMENT =~ "-fra-" ]]; then
-  drush -y fra
+  drush $ALIAS -y fra
 fi
 
 if [[ $COMMENT =~ "-bigups-" ]]; then
-  drush -y updb
-  drush -y fra
-  drush cc all
+  drush $ALIAS -y updb
+  drush $ALIAS -y fra
+  drush $ALIAS cc all
 fi
 
 if [[ $COMMENT =~ "-cc_all-" ]]; then
-  drush cc all
+  drush $ALIAS cc all
 fi
 
 if [[ $COMMENT =~ "-cc_cssjs-" ]]; then
-  drush cc ccs-js
+  drush $ALIAS cc ccs-js
 fi
 
 if [[ $COMMENT =~ "-cc_blocks-" ]]; then
-  drush cc block
+  drush $ALIAS cc block
 fi
 
 
