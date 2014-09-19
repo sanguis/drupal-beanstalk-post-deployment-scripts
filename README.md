@@ -63,7 +63,7 @@ drush cc block
 
 drush php-eval 'node_access_rebuild();'
 
-**-cron--**
+**-cron-**
 
 drush cron
 
