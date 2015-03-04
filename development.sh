@@ -27,16 +27,16 @@ if [[ $COMMENT =~ "-dbdump-" ]]; then
 fi
 
 if [[ $COMMENT =~ "-updb-" ]]; then
-  drush $ALIAS -y updb
+  drush -y $ALIAS updb
 fi
 
 if [[ $COMMENT =~ "-fra-" ]]; then
-  drush $ALIAS -y fra
+  drush -y $ALIAS fra
 fi
 
 if [[ $COMMENT =~ "-bigups-" ]]; then
-  drush $ALIAS -y updb
-  drush $ALIAS -y fra
+  drush -y $ALIAS updb
+  drush -y $ALIAS fra
   drush $ALIAS cc all
 fi
 
