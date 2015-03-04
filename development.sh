@@ -1,7 +1,6 @@
 #!/bin/bash
 # how to run development.sh "%COMMENT%" %REVISION% %USER_NAME%
 #echo $@\n
-COMMENT=$1
 DATE=$(date)
 LOGFILE="$HOME/.beanstalk.log"
 ALIAS=""
@@ -19,6 +18,8 @@ while getopts "123la:" opt; do
      ;;
   esac
 done
+shift $((OPTIND-1))
+COMMENT=$1
 
 #TODO: Make commands collect in an array and then run them all in a batch
 if [[ $COMMENT =~ "-dbdump-" ]]; then
