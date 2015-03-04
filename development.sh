@@ -4,7 +4,7 @@
 COMMENT=$1
 DATE=$(date)
 LOGFILE="$HOME/.beanstalk.log"
-ALIAS="@self"
+ALIAS=""
 
 while getopts "123la:" opt; do
   case $opt in
